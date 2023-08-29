@@ -60,6 +60,17 @@ app.put("/herois/:id", function (req, res) {
   res.send("Item editado com sucesso!");
 });
 
+// Delete -> [DELETE] /herois/:id
+app.delete("/herois/:id", function (req, res) {
+  // Pegamos o parametro de rota ID
+  const id = req.params.id - 1;
+
+  // Excluir o item da lista
+  delete lista[id];
+
+  res.send("Item excluido com sucesso!");
+});
+
 app.listen(3000, () =>
   console.log("Servidor rodando em http://localhost:3000")
 );
