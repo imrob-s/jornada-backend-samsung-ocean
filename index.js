@@ -34,7 +34,17 @@ app.post("/herois", function (req, res) {
   lista.push(item);
 
   // Emviamos uma resposta de sucesso
-  res.send("Item criado com sucesso");
+  res.send("Item criado com sucesso!");
+});
+
+// Read By Id -> [GET] /herois/:id
+app.get("/herois/:id", function (req, res) {
+  const id = req.params.id - 1;
+
+  // pegamos a informação da lista
+  const item = lista[id];
+
+  res.send(item);
 });
 
 app.listen(3000, () =>
