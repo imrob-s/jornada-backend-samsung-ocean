@@ -47,6 +47,19 @@ app.get("/herois/:id", function (req, res) {
   res.send(item);
 });
 
+// Update -> [PUT] /herois/:id
+app.put("/herois/:id", function (req, res) {
+  const id = req.params.id - 1;
+
+  // Extrai o nome do Body da Request (Corpo da requisição)
+  const item = req.body.nome;
+
+  // Atualizamos a informação na lista de registros
+  lista[id] = item;
+
+  res.send("Item editado com sucesso!");
+});
+
 app.listen(3000, () =>
   console.log("Servidor rodando em http://localhost:3000")
 );
