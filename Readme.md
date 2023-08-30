@@ -1,4 +1,7 @@
-# Trilha Backend Intensivo
+# Jornada Backend Intensivo
+
+Empresa: Samsung Ocean Brasil
+Professor: Paulo Salvatore @paulosalvatore
 
 Empresa: Samsung Ocean
 Professor: Paulo Salvatore @paulosalvatore
