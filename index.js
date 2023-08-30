@@ -1,9 +1,12 @@
+require("dotenv").config();
 const express = require("express");
 const { MongoClient, ObjectId } = require("mongodb");
 
-const url =
-  "mongodb+srv://imrob:TOJSELtNpNMQcJhH@cluster0.fr5g5wr.mongodb.net/";
-const dbName = "jornada-backend-ago-23";
+const dbUser = process.env.DB_USER;
+const dbPassword = process.env.DB_PASSWORD;
+const dbUrl = process.env.DB_URL;
+const url = `mongodb+srv://${dbUser}:${dbPassword}@${dbUrl}`;
+const dbName = process.env.DB_NAME;
 const client = new MongoClient(url);
 
 async function main() {
