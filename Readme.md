@@ -1,5 +1,8 @@
 # Trilha Backend Intensivo
 
+Empresa: Samsung Ocean
+Professor: Paulo Salvatore @paulosalvatore
+
 Neste curso, adquiri conhecimentos valiosos sobre as tecnologias e práticas mais relevantes. O curso abrangeu:
 
 - Fundamentos do backend e seu papel essencial no desenvolvimento de software.
