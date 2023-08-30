@@ -1,5 +1,5 @@
 const express = require("express");
-const { MongoClient } = require("mongodb");
+const { MongoClient, ObjectId } = require("mongodb");
 
 const url =
   "mongodb+srv://imrob:TOJSELtNpNMQcJhH@cluster0.fr5g5wr.mongodb.net/";
@@ -40,49 +40,51 @@ async function main() {
   });
 
   // Create -> [POST] /herois
-  app.post("/herois", function (req, res) {
+  app.post("/herois", async function (req, res) {
     // console.log(req.body, typeof req.body);
 
     // Extrai o nome do Body da Request (Corpo da Requisição)
-    const item = req.body.nome;
+    const item = req.body;
 
-    // Inserir o item na lista
-    lista.push(item);
+    // Inserir o item na collection
+    await collection.insertOne(item);
 
     // Emviamos uma resposta de sucesso
-    res.send("Item criado com sucesso!");
+    res.send(item);
   });
 
   // Read By Id -> [GET] /herois/:id
-  app.get("/herois/:id", function (req, res) {
-    const id = req.params.id - 1;
+  app.get("/herois/:id", async function (req, res) {
+    const id = req.params.id;
 
-    // pegamos a informação da lista
-    const item = lista[id];
+    // pegamos a informação da collection
+    const item = await collection.findOne({
+      _id: new ObjectId(id),
+    });
 
     res.send(item);
   });
 
   // Update -> [PUT] /herois/:id
-  app.put("/herois/:id", function (req, res) {
-    const id = req.params.id - 1;
+  app.put("/herois/:id", async function (req, res) {
+    const id = req.params.id;
 
     // Extrai o nome do Body da Request (Corpo da requisição)
-    const item = req.body.nome;
+    const item = req.body;
 
-    // Atualizamos a informação na lista de registros
-    lista[id] = item;
+    // Atualizamos a informação na collection
+    await collection.updateOne({ _id: new ObjectId(id) }, { $set: item });
 
     res.send("Item editado com sucesso!");
   });
 
   // Delete -> [DELETE] /herois/:id
-  app.delete("/herois/:id", function (req, res) {
+  app.delete("/herois/:id", async function (req, res) {
     // Pegamos o parametro de rota ID
-    const id = req.params.id - 1;
+    const id = req.params.id;
 
-    // Excluir o item da lista
-    delete lista[id];
+    // Excluir o item da collection
+    await collection.deleteOne({ _id: new ObjectId(id) });
 
     res.send("Item excluido com sucesso!");
   });
