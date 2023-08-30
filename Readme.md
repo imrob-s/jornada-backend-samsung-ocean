@@ -1,10 +1,7 @@
 # Jornada Backend Intensivo
 
-Empresa: Samsung Ocean Brasil
-Professor: Paulo Salvatore @paulosalvatore
-
-Empresa: Samsung Ocean
-Professor: Paulo Salvatore @paulosalvatore
+🏫 Samsung Ocean - 
+👨‍🏫 Paulo Salvatore (@paulosalvatore)
 
 Neste curso, adquiri conhecimentos valiosos sobre as tecnologias e práticas mais relevantes. O curso abrangeu:
 
