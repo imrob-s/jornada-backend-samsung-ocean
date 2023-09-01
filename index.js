@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const { MongoClient, ObjectId } = require("mongodb");
+const cors = require("cors");
 
 const dbUser = process.env.DB_USER;
 const dbPassword = process.env.DB_PASSWORD;
@@ -18,6 +19,9 @@ async function main() {
   const collection = db.collection("herois");
 
   const app = express();
+
+  // Habilitar o CORS
+  app.use(cors());
 
   // Habilitamos o processamento de JSON
   app.use(express.json());
