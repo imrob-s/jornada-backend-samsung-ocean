@@ -92,7 +92,7 @@ async function main() {
     res.send("Item excluido com sucesso!");
   });
 
-  app.listen(3000, () =>
+  app.listen(process.env.PORT || 3000, () =>
     console.log("Servidor rodando em http://localhost:3000")
   );
 }
