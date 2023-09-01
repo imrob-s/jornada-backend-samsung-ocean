@@ -93,7 +93,7 @@ async function main() {
   });
 
   app.listen(process.env.PORT || 3000, () =>
-    console.log("Servidor rodando em http://localhost:3000")
+    console.info("Servidor rodando...")
   );
 }
 
